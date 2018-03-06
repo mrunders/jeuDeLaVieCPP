@@ -8,7 +8,7 @@ LOPTION_SFML = $(LOPTION) -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-syst
 main : main.o
 	mpic++ -o projet main.o $(LOPTION)
 
-main.o : main.cc
+main.o : main.cc travailleur.h master.h
 	mpic++ $(COPTION) -c main.cc
 
 fenetre.o : fenetre.cpp fenetre.h
