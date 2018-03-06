@@ -1,0 +1,27 @@
+#include <stdlib.h>
+#include <iostream>
+#include <mpi.h>
+#include <vector>
+#include <time.h>
+#include <string.h>
+#include <unistd.h>
+
+#define FATALE_ERREUR(s,n) perror(s),exit(n)
+
+using std::vector;
+
+int main(int argc , char**argv){
+
+    if (argc != 2){
+
+        std::cout << "param 1  : number" << std::endl;
+        return 127;
+    }
+
+    srand(time(NULL));
+
+    int size, rank;
+
+    MPI_Init(&argc,&argv);
+    MPI_Comm_size(MPI_COMM_WORLD,&size);
+    MPI_Comm_rank(MPI_COMM_WORLD,&rank);
