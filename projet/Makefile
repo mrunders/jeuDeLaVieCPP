@@ -1,18 +1,15 @@
 
 
-COPTION = -std=c++11 -Wall -Wextra -O3
+COPTION = -std=gnu++11 -Wall -Wextra -O3
 LOPTION = -std=c++11 -lpthread
 LOPTION_SFML = $(LOPTION) -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
 
 
-main : main.o
-	mpic++ -o projet main.o $(LOPTION)
+main : main.o 
+	mpic++ -o projet main.o $(LOPTION_SFML)
 
-main.o : main.cc travailleur.h master.h
-	mpic++ $(COPTION) -c main.cc
-
-fenetre.o : fenetre.cpp fenetre.h
-	g++ $(COPTION_SFML) -c fenetre.cpp
+main.o : main.cc
+	mpic++ $(COPTION) -c main.cc 
 
 clean:
 	rm -rf *.o
